@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F4EDE1" />
+  <title>Султанбек Бахтияров · Orchestra</title>
+  <meta name="description" content="Orchestra — Repository analysis, persistent code memory and AI agents in one developer workspace." />
+
+  <!-- Fonts: Fraunces (serif) + Inter (humanist sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="assets/fonts.css" rel="stylesheet" />
+
+  <!-- TailwindCSS (utility layer) -->
+  <script src="assets/vendor/tailwind.js"></script>
+
+  <link rel="stylesheet" href="style.css?v=2.2" />
+</head>
+<body>
+
+  <!-- ░░░ LOADER ░░░ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__word" data-word>ORCHESTRA</span>
+      <span class="loader__sub" id="loaderSub">Инженерная ИИ-платформа</span>
+    </div>
+  </div>
+
+  <!-- ░░░ GRAIN OVERLAY ░░░ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ░░░ TOP PROGRESS SCRUB ░░░ -->
+  <div class="scrub" aria-hidden="true"><span class="scrub__bar" id="scrubBar"></span></div>
+
+  <!-- ░░░ FLOATING NAV ░░░ -->
+  <header class="nav" id="nav">
+    <a href="#c01" class="nav__logo" data-goto="0">ORCHESTRA</a>
+    <button class="nav__chapter" id="navChapter" aria-haspopup="true" aria-expanded="false">
+      <span class="nav__num" id="navNum">01</span>
+      <span class="nav__name" id="navName">Обо мне</span>
+      <span class="nav__menu-label" id="navMenuLabel">Меню</span>
+    </button>
+  </header>
+
+  <!-- ░░░ RIGHT DOT RAIL ░░░ -->
+  <nav class="rail" id="rail" aria-label="Навигация по главам">
+    <!-- dots injected by JS -->
+  </nav>
+
+  <!-- ░░░ OVERVIEW GRID (Esc / nav click) ░░░ -->
+  <div class="overview" id="overview" aria-hidden="true">
+    <div class="overview__head">
+      <span id="ovTitle">Все разделы</span>
+      <button class="overview__close" id="overviewClose" aria-label="Close">Esc</button>
+    </div>
+    <div class="overview__grid" id="overviewGrid"><!-- injected --></div>
+  </div>
+
+  <main id="main">
+
+    <!-- ═══ 01 · ABOUT ME ═══ -->
+    <section class="chapter intro" id="c01" data-chapter data-name="Обо мне" data-theme="light">
+      <div class="intro__content grid">
+        <span class="eyebrow" data-reveal id="introEyebrow">01 — O‘QUVCHILAR KENGASHI</span>
+        <div class="intro__layout">
+          <h1 class="intro__name">
+            <span class="line" data-line id="introSurname">Бахтияров</span>
+            <span class="line" data-line id="introFirstName"><em>Султанбек</em></span>
+            <span class="line" data-line id="introPatronymic">Диярович</span>
+          </h1>
+          <div class="intro__school" data-reveal>
+            <span class="intro__school-label" id="introSchoolLabel">Школа №</span>
+            <span class="intro__school-number">37</span>
+            <p class="intro__class" id="introClass">10 «D» класс</p>
+          </div>
+        </div>
+        <div class="intro__role" data-reveal>
+          <div class="intro__role-main">
+            <span class="intro__role-label" id="introRoleLabel">Моя роль</span>
+            <div class="intro__role-body">
+              <p class="intro__role-title" id="introRole">IT-координатор IT Community Каракалпакстана</p>
+              <div class="intro__role-badge">
+                <span class="intro__badge-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm3.78 6.28-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 0 1 1.06-1.06L6.75 9.19l3.97-3.97a.75.75 0 0 1 1.06 1.06z"/></svg>
+                </span>
+                <span class="intro__badge-text" id="introCertBadge">Сертификат IT Park · Startup Manager</span>
+              </div>
+              <p class="intro__cert-sub" id="introCertSub">За вклад в развитие стартап-экосистемы и менторство локальных проектов</p>
+              <button type="button" class="intro__cert-btn" id="introCertOpenBtn">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 4 4M9 6.5v5M6.5 9h5"/></svg>
+                <span id="introCertView">Посмотреть сертификат</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="intro__cert-preview" id="introCertCard" role="button" tabindex="0" aria-label="Открыть сертификат IT Park">
+            <div class="intro__cert-frame">
+              <img src="assets/images/certificate-it-park.png" alt="Сертификат IT Park — Бахтияров Султанбек" class="intro__cert-img" loading="eager" />
+              <div class="intro__cert-shine" aria-hidden="true"></div>
+              <span class="intro__cert-tag">IT PARK</span>
+              <div class="intro__cert-hover-hint">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 4 4M9 6.5v5M6.5 9h5"/></svg>
+                <span id="introCertHover">Увеличить</span>
+              </div>
+            </div>
+            <div class="intro__cert-caption">
+              <span class="intro__cert-caption-title">Certificate of Volunteer Appreciation</span>
+              <span class="intro__cert-caption-date">25.09.2026 · IT Park</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 02 · AL-KHWARIZMI ═══ -->
+    <section class="chapter achievement achievement--kh" id="c02" data-chapter data-name="Аль-Хорезми" data-theme="warm">
+      <div class="achievement__content grid">
+        <span class="eyebrow" data-reveal id="khEyebrow">02 — В 14 ЛЕТ</span>
+        <div class="achievement__layout">
+          <div class="achievement__story">
+            <h2 class="achievement__title" data-reveal id="khTitle">Аль-Хорезми</h2>
+            <p class="achievement__lead" data-reveal id="khLead">Прошёл отбор в президентскую программу</p>
+            <div class="achievement__stats" data-reveal>
+              <div><span class="achievement__stat-number">1 500+</span><p id="khApplicantsLabel">участников отбора</p></div>
+              <div><span class="achievement__stat-number">140</span><p id="khSelectedLabel">прошли отбор</p></div>
+            </div>
+          </div>
+          <div class="achievement__result" data-reveal>
+            <div class="achievement__number">16<span class="achievement__ordinal" id="khRankSuffix">-е</span></div>
+            <p class="achievement__caption" id="khRankLabel">моё место в отборе</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 03 · PRESIDENTIAL PROGRAM ═══ -->
+    <!-- Official name: https://www.president.uz/oz/lists/view/8127 . Personal results and figures supplied by the presenter. -->
+    <section class="chapter achievement achievement--pif" id="c03" data-chapter data-name="Президентская программа" data-theme="light">
+      <div class="achievement__content grid">
+        <span class="eyebrow" data-reveal id="pifEyebrow">03 — В 15 ЛЕТ</span>
+        <div class="achievement__layout">
+          <div class="achievement__story">
+            <h2 class="achievement__title achievement__title--long" data-reveal id="pifTitle">Prezident<br><em>iqtidorli farzandlari</em></h2>
+            <p class="achievement__lead" data-reveal id="pifLead">Прошёл во вторую президентскую программу</p>
+            <div class="achievement__stats" data-reveal>
+              <div><span class="achievement__stat-number">33 000</span><p id="pifApplicantsLabel">заявок по всему Узбекистану</p></div>
+            </div>
+          </div>
+          <div class="achievement__result" data-reveal>
+            <div class="achievement__number achievement__number--wide">1 500</div>
+            <p class="achievement__caption" id="pifSelectedLabel">отобранных участников</p>
+            <p class="achievement__statement" id="pifResult">Я в их числе</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 04 · UZCOMBINATOR ═══ -->
+    <section class="chapter achievement achievement--uzc" id="c04" data-chapter data-name="UzCombinator" data-theme="warm">
+      <div class="achievement__content grid">
+        <span class="eyebrow" data-reveal id="uzcEyebrow">04 — В 15 ЛЕТ</span>
+        <div class="achievement__layout achievement__layout--uzc">
+          <div class="achievement__story">
+            <h2 class="achievement__title" data-reveal id="uzcTitle">UzCombinator</h2>
+            <p class="achievement__lead achievement__lead--stage" data-reveal id="uzcLead">Прошёл <em>первый этап</em><br>отбора</p>
+            <div class="achievement__stats" data-reveal>
+              <div><span class="achievement__stat-number">1 500</span><p id="uzcApplicantsLabel">участников отбора</p></div>
+            </div>
+            <div class="achievement__proof-action" data-reveal>
+              <button type="button" class="achievement__proof-btn" id="uzcOpenBtn">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 4 4M9 6.5v5M6.5 9h5"/></svg>
+                <span id="uzcProofBtn">Посмотреть оригинал</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="achievement__result" data-reveal>
+            <div class="achievement__number">5<span class="achievement__percent">%</span></div>
+            <p class="achievement__caption" id="uzcPercentLabel">отобранных на первом этапе</p>
+            <p class="achievement__statement" id="uzcResult">Вошёл в эти 5%</p>
+          </div>
+
+          <div class="achievement__proof-card" id="uzcProofCard" role="button" tabindex="0" aria-label="Открыть поздравление UzCombinator" data-reveal>
+            <div class="achievement__proof-frame">
+              <img src="assets/images/uzcombinator-certificate-original.png" alt="UzCombinator — TABRIKLAYMIZ! Orchestra Top 5%" class="achievement__proof-img" loading="eager" />
+              <div class="achievement__proof-glow" aria-hidden="true"></div>
+              <span class="achievement__proof-tag" id="uzcProofTag">UZ COMBINATOR</span>
+              <div class="achievement__proof-hover-hint">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m13.5 13.5 4 4M9 6.5v5M6.5 9h5"/></svg>
+                <span id="uzcHoverText">Увеличить</span>
+              </div>
+            </div>
+            <div class="achievement__proof-caption">
+              <span class="achievement__proof-caption-title" id="uzcProofTitle">Top 5% стартапов · Orchestra</span>
+              <span class="achievement__proof-caption-tag">Suhbat bosqichi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ 05 · HERO ═══ -->
+    <section class="chapter hero" id="c05" data-chapter data-name="Home" data-theme="light">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <div class="hero__layout grid">
+        <div class="hero__content">
+          <span class="eyebrow" data-reveal id="heroEyebrow">05 — ORCHESTRA — ИНЖЕНЕРНАЯ ИИ-ПЛАТФОРМА</span>
+          <h2 class="hero__title">
+            <span class="line" data-line id="heroTitle1">Один разработчик.</span>
+            <span class="line" data-line id="heroTitle2">Команда ИИ-<em>инженеров</em>.</span>
+          </h2>
+          <p class="hero__lead" data-reveal id="heroLead">Orchestra объединяет анализ репозитория, память о коде и ИИ-агентов. Разработчик задаёт цель, следит за работой и проверяет изменения в одном пространстве.</p>
+        </div>
+        <div class="hero__terminal-wrap" data-reveal>
+          <div class="hero__terminal">
+            <div class="hero__terminal-header">
+              <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+              <span class="hero__terminal-title" id="tTitle">Orchestra · пример рабочего процесса</span>
+            </div>
+            <div class="hero__terminal-body">
+              <p class="t-cmd"><span>$</span> <span id="tCmd">Задача: разобраться в авторизации и добавить тесты</span></p>
+              <p class="t-log t-success">✔ <span id="tLog1">Репозиторий подключён: структура и зависимости</span></p>
+              <p class="t-log t-info">ℹ <span id="tLog2">Контекст: память проекта и история изменений</span></p>
+              <p class="t-log t-info">ℹ <span id="tLog3">Агенты: анализ, план и изменения кода</span></p>
+              <p class="t-log t-info">ℹ <span id="tLog4">Проверки: тесты и просмотр diff</span></p>
+              <p class="t-log t-success">✔ <span id="tLog5">Результат: изменения для проверки разработчиком</span></p>
+              <p class="t-cursor"><span>$</span> <span class="cursor-blink"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 06 · THE PROBLEM ═══ -->
+    <section class="chapter problem" id="c06" data-chapter data-name="Problem" data-theme="light">
+      <div class="problem__content grid">
+        <span class="eyebrow" data-reveal id="probEyebrow">06 — ПРОБЛЕМА</span>
+        <div class="problem__layout">
+          <div class="problem__text">
+            <h2 class="h1 splitlines" data-split id="probTitle">Контекст теряется между задачами и инструментами.</h2>
+          </div>
+          <div class="problem__visual-grid" data-reveal>
+            <div class="problem__card problem__card--old">
+              <span class="problem__badge" id="probBadge1">Старый подход</span>
+              <h4 id="probCard1Title">Каждую задачу начинаем с разбора кода</h4>
+              <p id="probCard1Desc">Нужно найти нужные файлы, восстановить решения команды и перенести контекст в чат. Затем отдельно проверить результат.</p>
+            </div>
+            <div class="problem__card problem__card--new">
+              <span class="problem__badge problem__badge--active" id="probBadge2">Подход Orchestra</span>
+              <h4 id="probCard2Title">Общий контекст для человека и агентов</h4>
+              <p id="probCard2Desc">Анализ, память, задачи и изменения связаны с репозиторием. Разработчик видит путь от запроса до результата.</p>
+            </div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat" data-reveal>
+            <span class="stat__num editorial-word" id="stat1Word">Контекст</span>
+            <span class="stat__cap" id="stat1Cap">знания о коде разбросаны по файлам, чатам и людям</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num editorial-word" id="stat2Word">Координация</span>
+            <span class="stat__cap" id="stat2Cap">задачи, агенты и изменения требуют общего управления</span>
+          </div>
+          <div class="stat" data-reveal>
+            <span class="stat__num editorial-word" id="stat3Word">Проверка</span>
+            <span class="stat__cap" id="stat3Cap">результат ИИ нужно проверить перед объединением кода</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 07 · WHY NOW ═══ -->
+    <section class="chapter why" id="c07" data-chapter data-name="Why Now" data-theme="light">
+      <div class="why__content grid">
+        <span class="eyebrow" data-reveal id="whyEyebrow">07 — ПОЧЕМУ СЕЙЧАС</span>
+        <h2 class="h1" data-split id="whyTitle">ИИ уже работает с кодом. Нужен связный процесс.</h2>
+
+        <div class="why__grid">
+          <div class="bignum" data-reveal>
+            <span class="bignum__val editorial-word" id="whyWord1">Агенты</span>
+            <p class="bignum__cap" id="whyCap1">Инструменты перешли от подсказок к многошаговым задачам: анализу, изменениям и проверкам.</p>
+          </div>
+          <div class="bignum" data-reveal>
+            <span class="bignum__val editorial-word" id="whyWord2">Память</span>
+            <p class="bignum__cap" id="whyCap2">Повторные задачи требуют контекста: архитектуры, прошлых решений и истории изменений.</p>
+          </div>
+          <div class="bignum" data-reveal>
+            <span class="bignum__val editorial-word" id="whyWord3">Контроль</span>
+            <p class="bignum__cap" id="whyCap3">Ценность для команды — понятный ход работы, проверяемый результат и видимые расходы.</p>
+          </div>
+        </div>
+        <p class="note" data-reveal id="whyNote">Наш фокус: связать понимание кода и выполнение задач в одном рабочем процессе.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 08 · THE SOLUTION (Redesigned Grid without Vertical Line) ═══ -->
+    <section class="chapter solution" id="c08" data-chapter data-name="Solution" data-theme="warm">
+      <div class="solution__head grid">
+        <span class="eyebrow" data-reveal id="solEyebrow">08 — РЕШЕНИЕ</span>
+        <h2 class="h1" data-split id="solTitle">От понимания репозитория к проверенным изменениям.</h2>
+      </div>
+
+      <div class="solution__grid grid" id="solutionGrid">
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">01</span>
+            <span class="step-card__tag" id="step1Tag">GitHub</span>
+          </div>
+          <h3 id="step1Title">Подключить репозиторий</h3>
+          <p id="step1Desc">Выберите проект и ветку, с которыми будет работать Orchestra.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">02</span>
+            <span class="step-card__tag" id="step2Tag">Анализ</span>
+          </div>
+          <h3 id="step2Title">Понять код</h3>
+          <p id="step2Desc">Изучите структуру, технологии и зависимости. Задавайте вопросы о проекте.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">03</span>
+            <span class="step-card__tag" id="step3Tag">Память</span>
+          </div>
+          <h3 id="step3Title">Сохранить контекст</h3>
+          <p id="step3Desc">Используйте историю анализов, снимки и различия между версиями.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">04</span>
+            <span class="step-card__tag" id="step4Tag">Агенты</span>
+          </div>
+          <h3 id="step4Title">Поставить задачу</h3>
+          <p id="step4Desc">Опишите нужное изменение. Агенты используют контекст репозитория для работы с кодом.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">05</span>
+            <span class="step-card__tag" id="step5Tag">Проверка</span></div>
+          <h3 id="step5Title">Проверить результат</h3>
+          <p id="step5Desc">Просмотрите файлы, diff и результаты проверок перед принятием изменений.</p>
+        </div>
+        <div class="step-card" data-reveal>
+          <div class="step-card__head">
+            <span class="step-card__num">06</span>
+            <span class="step-card__tag" id="step6Tag">История</span>
+          </div>
+          <h3 id="step6Title">Продолжить с контекстом</h3>
+          <p id="step6Desc">Вернитесь к истории работы, уточните задачу и продолжите следующую итерацию.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 09 · PRODUCT DEMO ═══ -->
+    <section class="chapter demo" id="c09" data-chapter data-name="Product" data-theme="light">
+      <div class="demo__pin" id="demoPin">
+        <div class="demo__intro grid">
+          <div class="demo__intro-top">
+            <div>
+              <span class="eyebrow" data-reveal id="prodEyebrow">09 — ПРОДУКТ</span>
+              <h2 class="h1" data-split id="prodTitle">Пять сценариев. Одно пространство.</h2>
+            </div>
+            <div class="demo__progress" data-reveal>
+              <span class="demo__indicator" id="demoIndicator">01 / 05</span>
+              <div class="demo__dots" id="demoDots" aria-hidden="true">
+                <span class="demo__dot is-active"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+                <span class="demo__dot"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="note grid product-note" id="prodNote">Анализ и память дают контекст агентам. На экранах — примеры интерфейса; надёжность выполнения измеряем на реальных задачах.</p>
+        <div class="demo__track" id="demoTrack">
+          <article class="device device--web">
+            <div class="device__frame">
+              
+              <img src="assets/images/demo-1.png?v=2.1" alt="GitHub Integration" class="device__screen" style="opacity: 1;" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap1"><b>Репозиторий и контекст</b> — файлы, структура, анализ, снимки и память проекта</p>
+          </article>
+          <article class="device device--phone">
+            <div class="device__frame">
+              
+              <img src="assets/images/demo-2.png?v=2.1" alt="Task Management" class="device__screen" style="opacity: 1;" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap2"><b>Задачи</b> — запрос на естественном языке и отчёт о выполнении</p>
+          </article>
+          <article class="device device--tg">
+            <div class="device__frame">
+              
+              <img src="assets/images/demo-3.png?v=2.1" alt="AI Code Generation" class="device__screen" style="opacity: 1;" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap3"><b>Работа с кодом</b> — создание и изменение файлов с помощью агентов</p>
+          </article>
+          <article class="device device--courier">
+            <div class="device__frame">
+              
+              <img src="assets/images/demo-4.png?v=2.1" alt="Code Review & PRs" class="device__screen" style="opacity: 1;" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap4"><b>Проверка изменений</b> — редактор, diff и подготовка pull request</p>
+          </article>
+          <article class="device device--admin">
+            <div class="device__frame">
+              
+              <img src="assets/images/demo-5.png?v=2.1" alt="Team Workspace" class="device__screen" style="opacity: 1;" onload="this.style.opacity='1'">
+              <div class="device__zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg><span class="zoom-hint-text">Увеличить</span></div>
+            </div>
+            <p class="device__cap" id="cap5"><b>Рабочее пространство</b> — вопросы о коде, проекты и история активности</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 10 · MARKET ═══ -->
+    <section class="chapter market" id="c10" data-chapter data-name="Market" data-theme="dark">
+      <div class="market__content grid">
+        <span class="eyebrow" data-reveal id="mktEyebrow">10 — РЫНОК</span>
+        <h2 class="h1" data-split id="mktTitle">Рынок. Сценарий для старта.</h2>
+        <div class="market-cards">
+          <article class="market-card" data-reveal>
+            <span class="market-card__tag">TAM</span>
+            <div class="market-card__amount">~$591M</div>
+            <div class="market-card__unit"><span class="market-unit">в год · модель</span></div>
+            <h3 id="tamTitle">Глобальный целевой сегмент</h3>
+            <p id="tamDesc">36,5 млн профессиональных разработчиков × 5% профильных покупателей × $324 в год. Доля 5% — допущение модели.</p>
+          </article>
+          <article class="market-card" data-reveal>
+            <span class="market-card__tag">SAM</span>
+            <div class="market-card__amount">$405K</div>
+            <div class="market-card__unit"><span class="market-unit">в год · модель</span></div>
+            <h3 id="samTitle">Стартовый сегмент в Узбекистане</h3>
+            <p id="samDesc">25 тыс. занятых в IT-услугах и ПО × 5% профильных покупателей = 1 250 мест. Потенциал при $324 в год за место.</p>
+          </article>
+          <article class="market-card" data-reveal>
+            <span class="market-card__tag">SOM</span>
+            <div class="market-card__amount">$32.4K</div>
+            <div class="market-card__unit"><span id="mktSomUnit">ARR</span></div>
+            <h3 id="somTitle">Цель на 12–18 месяцев</h3>
+            <p id="somDesc">100 платящих клиентов × $27 в месяц = $2 700 MRR. Годовой темп выручки при достижении цели — $32 400.</p>
+          </article>
+        </div>
+        <p class="market-note" data-reveal id="mktNote">Расчётная модель, не фактическая выручка. База: Standard $27 × 12 = $324/год; без доплат за использование.</p>
+        <details class="market-method" data-reveal>
+          <summary id="mktMethodTitle">Допущения и источники</summary>
+          <p id="mktMethod">5% — рабочая гипотеза о доле профильных покупателей, а не измеренное использование ИИ. TAM — выбранный сегмент. SAM — предварительная оценка: занятые в IT-услугах и ПО не равны числу разработчиков. Число мест и готовность платить требуют проверки. SOM — цель по активным подпискам к концу периода, не выручка за первый год.</p>
+          <p id="mktSourcesLabel">База расчёта:</p>
+          <a id="mktSourceGlobal" href="https://www.slashdata.co/blog/global-developer-population-trends-2025-how-many-developers-are-there" target="_blank" rel="noopener noreferrer">SlashData, 2025: 36,5 млн профессиональных разработчиков</a>
+          <a id="mktSourceLocal" href="https://documents1.worldbank.org/curated/en/099112525160528750/pdf/P505350-7fe90098-b82b-47a4-9f4f-7048c70ead40.pdf#page=51" target="_blank" rel="noopener noreferrer">World Bank / IT Park, III кв. 2024: 25 тыс. занятых в IT-услугах и ПО</a>
+        </details>
+      </div>
+    </section>
+
+    <!-- ═══ 11 · BUSINESS MODEL ═══ -->
+    <section class="chapter biz" id="c11" data-chapter data-name="Business Model" data-theme="light">
+      <div class="biz__content grid">
+        <span class="eyebrow" data-reveal id="bizEyebrow">11 — БИЗНЕС-МОДЕЛЬ</span>
+        <h2 class="h1" data-split id="bizTitle">Подписка и включённые AI-кредиты.</h2>
+
+        <div class="biz__cards">
+<article class="card" data-reveal tabindex="0">
+            <span class="card__k">01</span>
+            <h3 id="bizT2">Standard</h3>
+            <span class="card__metric">$27<span style="font-size: 0.75em; font-weight: 400; color: var(--ink-soft);" class="t-mo"> /мес.</span></span>
+            <ul style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.4;">
+              <li><b style="color: var(--ink); font-weight: 600;">$15</b> <span class="t-cr">Credits</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">5</b> <span class="t-ag">Одновременные агенты</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">100</b> <span class="t-rep">Репозитории</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">100K</b> <span class="t-fil">Файлы</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">180 <span class="t-d">дней</span></b> <span class="t-mem">Память</span></li>
+            </ul>
+          </article>
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">02</span>
+            <h3 id="bizT3">Pro</h3>
+            <span class="card__metric">$59<span style="font-size: 0.75em; font-weight: 400; color: var(--ink-soft);" class="t-mo"> /мес.</span></span>
+            <ul style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.4;">
+              <li><b style="color: var(--ink); font-weight: 600;">$35</b> <span class="t-cr">Credits</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">8</b> <span class="t-ag">Одновременные агенты</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">500</b> <span class="t-rep">Репозитории</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">500K</b> <span class="t-fil">Файлы</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;" class="t-unl">Unlimited</b> <span class="t-mem">Память</span></li>
+            </ul>
+          </article>
+          <article class="card" data-reveal tabindex="0">
+            <span class="card__k">03</span>
+            <h3 id="bizT4">Advanced</h3>
+            <span class="card__metric">$119<span style="font-size: 0.75em; font-weight: 400; color: var(--ink-soft);" class="t-mo"> /мес.</span></span>
+            <ul style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--ink-soft); display: flex; flex-direction: column; gap: 0.5rem; line-height: 1.4;">
+              <li><b style="color: var(--ink); font-weight: 600;">$80</b> <span class="t-cr">Credits</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">—</b> <span class="t-ag">Одновременные агенты</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">—</b> <span class="t-rep">Репозитории</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">—</b> <span class="t-fil">Файлы</span></li>
+              <li><b style="color: var(--ink); font-weight: 600;">—</b> <span class="t-mem">Память</span></li>
+            </ul>
+          </article>
+        </div>
+        <p class="note" data-reveal id="bizNote">Планируемая тарифная модель: Standard $27, Pro $59, Advanced $119 в месяц. Дополнительное использование и лимиты Advanced уточняются. Тарифы тестового лендинга пока отличаются.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 12 · COMPETITIVE ═══ -->
+    <section class="chapter compete" id="c12" data-chapter data-name="Competition" data-theme="light">
+      <div class="compete__content grid">
+        <span class="eyebrow" data-reveal id="compEyebrow">12 — КОНКУРЕНТЫ</span>
+        <h2 class="h1" data-split id="compTitle">Память кода и агенты — в одном процессе.</h2>
+
+<div class="comp-scroll" tabindex="0" role="region" aria-label="Competition comparison"><div class="comp-showcase" data-reveal>
+<div class="comp-header"><span class="ch-label" id="compCol0">Что сравниваем</span><span class="ch-hero"><span class="comp-badge" id="cbHero">Наш фокус</span><b id="compCol1">ORCHESTRA</b></span><span class="ch-other"><span class="comp-badge" id="cbAst">IDE + Cloud</span><b id="compCol2">Cursor</b></span><span class="ch-other"><span class="comp-badge" id="cbTrad">GitHub + IDE</span><b id="compCol3">GitHub Copilot</b></span><span class="ch-other"><span class="comp-badge" id="cbAgt">Агент</span><b id="compCol4">Devin</b></span></div>
+<div class="comp-pill-row"><div class="cp-crit" id="compRow1Label">Контекст кода</div><div class="cp-hero"><div class="cp-hero-box" id="compRow1Us">Анализ, снимки и память репозитория</div></div><div class="cp-other" id="compRow1Other1">Контекст проекта и общая память агентов</div><div class="cp-other" id="compRow1Other2">Контекст репозитория и память сессий</div><div class="cp-other" id="compRow1Other3">Индекс репозитория, DeepWiki и знания</div></div>
+<div class="comp-pill-row"><div class="cp-crit" id="compRow2Label">Выполнение задач</div><div class="cp-hero"><div class="cp-hero-box" id="compRow2Us">Задачи для агентов в рабочем пространстве</div></div><div class="cp-other" id="compRow2Other1">Агенты в IDE и облаке; Projects</div><div class="cp-other" id="compRow2Other2">Облачные задачи, изменения и тесты</div><div class="cp-other" id="compRow2Other3">Агентные сессии и выполнение задач</div></div>
+<div class="comp-pill-row"><div class="cp-crit" id="compRow3Label">Параллельная работа</div><div class="cp-hero"><div class="cp-hero-box" id="compRow3Us">Координация агентов — фокус развития</div></div><div class="cp-other" id="compRow3Other1">Projects координирует несколько агентов</div><div class="cp-other" id="compRow3Other2">Агентные сессии и workflows</div><div class="cp-other" id="compRow3Other3">Managed Devins: параллельные сессии</div></div>
+<div class="comp-pill-row"><div class="cp-crit" id="compRow4Label">Проверка результата</div><div class="cp-hero"><div class="cp-hero-box" id="compRow4Us">Файлы, diff и подготовка PR</div></div><div class="cp-other" id="compRow4Other1">Проверка изменений и pull requests</div><div class="cp-other" id="compRow4Other2">Pull requests, review и проверки</div><div class="cp-other" id="compRow4Other3">Pull requests, review и тесты</div></div>
+<div class="comp-pill-row"><div class="cp-crit" id="compRow5Label">Продуктовый акцент</div><div class="cp-hero"><div class="cp-hero-box" id="compRow5Us">Понять → запомнить → выполнить → проверить</div></div><div class="cp-other" id="compRow5Other1">Разработка и координация в среде Cursor</div><div class="cp-other" id="compRow5Other2">Агенты внутри GitHub и IDE</div><div class="cp-other" id="compRow5Other3">Делегирование инженерных задач</div></div>
+</div></div><p class="note comparison-note" data-reveal id="compNote">Память и параллельность есть и у конкурентов. Ставка Orchestra — удобство единого процесса для небольших команд; преимущество проверяем на пилотах, а не заявляем как доказанный факт.</p><div class="comparison-sources"><span id="compSources">Источники: официальная документация · проверено 23.10.2026</span><a href="https://cursor.com/docs/agent/projects" target="_blank" rel="noopener noreferrer">Cursor</a><a href="https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github" target="_blank" rel="noopener noreferrer">GitHub Copilot</a><a href="https://docs.devin.ai/work-with-devin/advanced-capabilities" target="_blank" rel="noopener noreferrer">Devin</a><a href="https://docs.devin.ai/work-with-devin/deepwiki" target="_blank" rel="noopener noreferrer">DeepWiki</a></div>
+      </div>
+    </section>
+
+    <!-- ═══ 13 · TRACTION ═══ -->
+    <section class="chapter traction" id="c13" data-chapter data-name="Traction" data-theme="dark">
+      <div class="grid" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: clamp(24px, 4vh, 48px); padding-block: clamp(60px, 12vh, 120px);">
+        <span class="eyebrow" data-reveal style="color: var(--primary);" id="tracEyebrow">13 — TRACTION</span>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <h2 class="h1" data-split style="font-size: clamp(3rem, 6vw, 5rem); margin: 0; color: #fff; line-height: 1.1;" id="tracTitle">20+ АКТИВНЫХ ПОЛЬЗОВАТЕЛЕЙ</h2>
+          <span data-reveal style="font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.5rem); color: #F0B429; font-weight: 600; letter-spacing: 0.05em;" id="tracSub">За первые 2 недели MVP · по данным команды</span>
+        </div>
+
+        <p class="note" data-reveal style="font-size: clamp(1rem, 1.25vw, 1.1rem); font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; max-width: 600px; margin: 0 auto;" id="tracNote">
+          <span class="t-mvp">MVP Launch</span> → <span class="t-ru">Real Users</span> → <span class="t-cf">Continuous Feedback</span>
+        </p>
+        <p class="note" data-reveal style="font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--ink-soft); max-width: 600px; margin: 0 auto; line-height: 1.6;" id="tracDesc">Следующие метрики: повторное использование, доля принятых изменений, стоимость задачи и конверсия в оплату.</p>
+      </div>
+    </section>
+
+    <!-- ═══ 14 · ROADMAP ═══ -->
+    <section class="chapter road" id="c14" data-chapter data-name="Roadmap" data-theme="light">
+      <div class="road__content grid">
+        <span class="eyebrow" data-reveal id="roadEyebrow">14 — ДОРОЖНАЯ КАРТА</span>
+        <h2 class="h1" data-split id="roadTitle">План на 18 месяцев после инвестиций.</h2>
+
+<ol class="timeline" id="timeline"><span class="timeline__line" aria-hidden="true"><span id="timelineFill"></span></span><li class="milestone" data-node><span class="milestone__dot"></span><span class="milestone__date" id="roadDate1">0–3 мес.</span><h3 id="roadHeading1">Качество ядра</h3><p id="roadText1">Анализ, память и агентные задачи. Измерить повторное использование и ошибки.</p></li><li class="milestone" data-node><span class="milestone__dot"></span><span class="milestone__date" id="roadDate2">4–6 мес.</span><h3 id="roadHeading2">Платные пилоты</h3><p id="roadText2">Проверить готовность платить и стоимость выполнения задач.</p></li><li class="milestone" data-node><span class="milestone__dot"></span><span class="milestone__date" id="roadDate3">7–9 мес.</span><h3 id="roadHeading3">Координация агентов</h3><p id="roadText3">Улучшить параллельную работу, тесты и обработку конфликтов.</p></li><li class="milestone" data-node><span class="milestone__dot"></span><span class="milestone__date" id="roadDate4">10–12 мес.</span><h3 id="roadHeading4">Командные сценарии</h3><p id="roadText4">Улучшить общий контекст, доступы и контроль бюджета.</p></li><li class="milestone" data-node><span class="milestone__dot"></span><span class="milestone__date" id="roadDate5">13–18 мес.</span><h3 id="roadHeading5">100 платящих клиентов</h3><p id="roadText5">Цель: $2 700 MRR при $27/мес. Проверить удержание до масштабирования.</p></li></ol>
+      </div>
+    </section>
+
+<!-- ═══ 15 · TEAM ═══ -->
+    <section class="chapter team" id="c15" data-chapter data-name="Team" data-theme="light">
+      <div class="grid" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: clamp(24px, 4vh, 48px); padding-block: clamp(60px, 12vh, 120px);">
+        <span class="eyebrow" data-reveal id="teamEyebrow">15 — КОМАНДА</span>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <h2 class="h1" data-split style="font-size: clamp(3rem, 5vw, 4rem); margin: 0; line-height: 1.1;" id="teamTitle">Команда</h2>
+        </div>
+
+        <div class="team-cards" data-reveal>
+          <div class="team-card">
+            <div style="width:120px;height:120px;border-radius:50%;background:#f0f0f0;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;flex-shrink:0;" aria-label="Photo"><span style="color:#999;font-size:0.8rem;text-transform:uppercase;">Photo</span></div>
+            <h3 style="color: var(--ink); margin-bottom: 0.25rem; font-size: 1.35rem; font-family: var(--serif); font-weight: 600;">Бахтияров Султанбек</h3>
+            <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;">Founder & CEO</p>
+            <p class="team-card__desc" id="teamCeoDesc">Стратегия, развитие бизнеса и партнёрства.</p>
+          </div>
+          <div class="team-card">
+            <div style="width:120px;height:120px;border-radius:50%;background:#f0f0f0;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;flex-shrink:0;" aria-label="Photo"><span style="color:#999;font-size:0.8rem;text-transform:uppercase;">Photo</span></div>
+            <h3 style="color: var(--ink); margin-bottom: 0.25rem; font-size: 1.35rem; font-family: var(--serif); font-weight: 600;">Ибрагимов Аллаяр</h3>
+            <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;">CPO</p>
+            <p class="team-card__desc" id="teamCpoDesc">Развитие продукта, UX/UI и приоритеты функций.</p>
+          </div>
+          <div class="team-card">
+            <div style="width:120px;height:120px;border-radius:50%;background:#f0f0f0;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;flex-shrink:0;" aria-label="Photo"><span style="color:#999;font-size:0.8rem;text-transform:uppercase;">Photo</span></div>
+            <h3 style="color: var(--ink); margin-bottom: 0.25rem; font-size: 1.35rem; font-family: var(--serif); font-weight: 600;">Жумабаев Мирислам</h3>
+            <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;">CTO</p>
+            <p class="team-card__desc" id="teamCtoDesc">Архитектура, разработка и техническая надёжность.</p>
+          </div>
+          <div class="team-card">
+            <div style="width:120px;height:120px;border-radius:50%;background:#f0f0f0;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:2px dashed #ccc;flex-shrink:0;" aria-label="Photo"><span style="color:#999;font-size:0.8rem;text-transform:uppercase;">Photo</span></div>
+            <h3 style="color: var(--ink); margin-bottom: 0.25rem; font-size: 1.35rem; font-family: var(--serif); font-weight: 600;">Бахытов Мирбек</h3>
+            <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 1rem; text-transform: uppercase;">CFO</p>
+            <p class="team-card__desc" id="teamCfoDesc">Бюджетирование, финансовое планирование и контроль расходов.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 16 · INVESTMENT ═══ -->
+    <section class="chapter invest" id="c16" data-chapter data-name="Investment" data-theme="warm">
+      <div class="invest__content grid">
+        <span class="eyebrow" data-reveal id="invEyebrow">16 — ИНВЕСТИЦИИ</span>
+        <h2 class="h1" data-split id="invTitle">Раунд инвестиций.</h2>
+
+        <div class="invest__ask" data-reveal>
+          <span class="invest__amount" data-count="150" data-prefix="$" data-suffix="K">0</span>
+          <span class="invest__round" id="invRound">10% доли · $1,5M post-money · предложение</span>
+        </div>
+
+        <div class="invest__use">
+          <div class="use" data-reveal style="--w:40%">
+            <span class="use__label" id="invUse1">Разработка продукта и тестирование</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$60K</span>
+          </div>
+          <div class="use" data-reveal style="--w:20%">
+            <span class="use__label" id="invUse2">AI API, серверы и хранение данных</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$30K</span>
+          </div>
+          <div class="use" data-reveal style="--w:16%">
+            <span class="use__label" id="invUse3">Маркетинг, продажи и пилоты</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$24K</span>
+          </div>
+          <div class="use" data-reveal style="--w:12%">
+            <span class="use__label" id="invUse4">Операционная команда и инструменты</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$18K</span>
+          </div>
+          <div class="use" data-reveal style="--w:4%">
+            <span class="use__label" id="invUse5">Юридические услуги и бухгалтерия</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$6K</span>
+          </div>
+          <div class="use" data-reveal style="--w:8%">
+            <span class="use__label" id="invUse6">Резерв на непредвиденные расходы</span>
+            <span class="use__bar"><span></span></span>
+            <span class="use__val">$12K</span>
+          </div>
+        </div>
+        <p class="note" data-reveal style="font-size: 0.85em; opacity: 0.85; margin-bottom: 0.5rem;" id="invFounders">План на 18 месяцев: $138K расходов (≈ $7,7K/мес) + $12K резерва. Разработка учтена отдельно от операционной команды; суммы предварительные.</p>
+        <p class="note" data-reveal id="invNote" style="font-weight: 600; color: var(--primary);">$150K → 18 месяцев → проверка спроса и платящие клиенты</p>
+      </div>
+    </section>
+
+    <!-- ═══ 17 · THANK YOU / QR CODE ═══ -->
+    <section class="chapter thanks" id="c17" data-chapter data-name="Contact" data-theme="light">
+      <div class="thanks__content grid">
+        <span class="thanks__logo" id="thanksLogo">ORCHESTRA</span>
+        <p class="thanks__slogan" data-split id="thanksSlogan">Один разработчик. Команда ИИ-инженеров.</p>
+
+        <div class="thanks__meta">
+          <div class="thanks__qr" data-reveal>
+            <a href="https://orchestra-frontend-murex.vercel.app" target="_blank" rel="noopener noreferrer" class="thanks__qr-link" aria-label="Try Orchestra">
+              <img src="assets/qr.png?v=murex" alt="QR code — Try Orchestra" width="200" height="200" class="thanks__qr-img" />
+            </a>
+            <a href="https://orchestra-frontend-murex.vercel.app" target="_blank" rel="noopener noreferrer" class="thanks__try">Try Orchestra <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <footer class="foot" id="footText">© 2026 Orchestra · Инженерная ИИ-Платформа</footer>
+    </section>
+
+  </main>
+
+  <!-- ░░░ FLOATING LANG SWITCHER (RU / UZ / EN) ░░░ -->
+  <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language selection">
+    <button class="lang-btn is-active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="uz">UZ</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+
+  <!-- ░░░ FLOATING FULLSCREEN BUTTON ░░░ -->
+  <button class="fullscreen-btn" id="fullscreenBtn" aria-label="Toggle Fullscreen" title="Fullscreen">
+    <svg class="fullscreen-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path class="icon-expand" d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      <path class="icon-compress" d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" style="display: none;" />
+    </svg>
+    <span class="fullscreen-btn__text">Fullscreen</span>
+  </button>
+
+  <!-- ░░░ LIGHTBOX / ZOOM VIEWER ░░░ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+    
+    <header class="lightbox__header">
+      <div class="lightbox__info">
+        <span class="lightbox__counter" id="lightboxCounter">01 / 05</span>
+        <h4 class="lightbox__title" id="lightboxTitle">GitHub Integration</h4>
+      </div>
+      <div class="lightbox__actions">
+        <button class="lightbox__btn" id="lightboxZoomIn" aria-label="Zoom In" title="Zoom In (+)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="lightbox__btn" id="lightboxZoomOut" aria-label="Zoom Out" title="Zoom Out (-)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="lightbox__btn" id="lightboxZoomReset" aria-label="Reset Zoom" title="Reset Zoom (0)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="lightbox__btn lightbox__btn--close" id="lightboxClose" aria-label="Close" title="Close (Esc)">
+          ✕
+        </button>
+      </div>
+    </header>
+
+    <div class="lightbox__viewport" id="lightboxViewport">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="Zoomed view" />
+    </div>
+
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image" title="Previous (←)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image" title="Next (→)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <footer class="lightbox__footer">
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+    </footer>
+  </div>
+
+  <!-- ░░░ CERTIFICATE MODAL (SLIDE 01) ░░░ -->
+  <div class="cert-modal" id="certModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="cert-modal__backdrop" id="certModalBackdrop"></div>
+    <div class="cert-modal__dialog">
+      <header class="cert-modal__header">
+        <div class="cert-modal__info">
+          <div class="cert-modal__badge">
+            <span class="cert-modal__badge-dot"></span>
+            <span>IT PARK KARAKALPAKSTAN</span>
+          </div>
+          <h3 class="cert-modal__title" id="certModalTitle">Сертификат признания · IT Park</h3>
+          <p class="cert-modal__desc" id="certModalDesc">Бахтияров Султанбек — Startup Manager · За вклад в развитие стартап-экосистемы</p>
+        </div>
+        <div class="cert-modal__actions">
+          <a href="assets/images/certificate-it-park.png" target="_blank" rel="noopener noreferrer" class="cert-modal__btn cert-modal__btn--open" id="certModalExternal" title="Открыть оригинал" aria-label="Открыть оригинал">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <button type="button" class="cert-modal__btn cert-modal__btn--close" id="certModalClose" aria-label="Закрыть">✕</button>
+        </div>
+      </header>
+      <div class="cert-modal__body">
+        <div class="cert-modal__paper">
+          <img src="assets/images/certificate-it-park.png" alt="Сертификат IT Park — Бахтияров Султанбек" class="cert-modal__img" />
+        </div>
+      </div>
+      <footer class="cert-modal__footer">
+        <span id="certModalFooterDate">25 сентября 2026 г. · Нукус, Узбекистан</span>
+        <span class="cert-modal__footer-sub" id="certModalFooterHint">Нажмите Esc или кликните вне окна, чтобы закрыть</span>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ░░░ UZCOMBINATOR MODAL (SLIDE 04) ░░░ -->
+  <div class="cert-modal cert-modal--uzc" id="uzcModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="uzcModalTitle">
+    <div class="cert-modal__backdrop" id="uzcModalBackdrop"></div>
+    <div class="cert-modal__dialog">
+      <header class="cert-modal__header">
+        <div class="cert-modal__info">
+          <div class="cert-modal__badge cert-modal__badge--uzc">
+            <span class="cert-modal__badge-dot"></span>
+            <span>UZ COMBINATOR · SELECTION</span>
+          </div>
+          <h3 class="cert-modal__title" id="uzcModalTitle">Официальное поздравление · UzCombinator</h3>
+          <p class="cert-modal__desc" id="uzcModalDesc">Orchestra отобрана в топ-5% стартапов на этапе собеседований</p>
+        </div>
+        <div class="cert-modal__actions">
+          <a href="assets/images/uzcombinator-certificate-original.png" target="_blank" rel="noopener noreferrer" class="cert-modal__btn cert-modal__btn--open" id="uzcModalExternal" title="Открыть оригинал" aria-label="Открыть оригинал">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <button type="button" class="cert-modal__btn cert-modal__btn--close" id="uzcModalClose" aria-label="Закрыть">✕</button>
+        </div>
+      </header>
+      <div class="cert-modal__body cert-modal__body--dark">
+        <div class="cert-modal__paper cert-modal__paper--dark">
+          <img src="assets/images/uzcombinator-certificate-original.png" alt="UzCombinator поздравление Orchestra Top 5%" class="cert-modal__img" />
+        </div>
+      </div>
+      <footer class="cert-modal__footer">
+        <span id="uzcModalFooterText">UzCombinator · Tabriklaymiz! Orchestra suhbat bosqichiga o‘tgan Top 5% startaplar qatorida</span>
+        <span class="cert-modal__footer-sub" id="uzcModalFooterHint">Нажмите Esc или кликните вне окна, чтобы закрыть</span>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ░░░ LIBRARIES ░░░ -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/vendor/split-type.js"></script>
+
+  <script src="script.js?v=2.3"></script>
+</body>
+</html>
